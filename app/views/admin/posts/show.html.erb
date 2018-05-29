@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h2><%= @post.title %></h2>
+      <p class="text-muted text-right"><%= @post.created_at.strftime("%Y-%m-%d") %></p>
+      <p><%= simple_format @post.content %></p>
+    </div>
+  </div>
+</div>

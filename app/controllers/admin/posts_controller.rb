@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
+  before_action :set_post, only: [:show]
     
   def index
     @posts = Post.all
@@ -22,4 +23,9 @@ class Admin::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :image)
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 end
