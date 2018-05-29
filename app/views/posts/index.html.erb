@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <h1 class="text-center">Stay Hungry, Stay Foolish</h1>
+      <br>
+      
+      <% @posts.each do |post| %>
+        <!-- For posts -->
+        <div class="col-xs-12 col-md-10">
+          
+          <h2><%= post.title %></h2>
+          <p class="text-muted"><%= post.created_at.strftime("%Y-%m-%d") %></p>
+          <%= image_tag post.image if post.image? %>
+          <p><%= truncate(post.content, length: 500) %></p>
+        
+        </div>
+
+        <!-- For categories -->
+        <div class="col-xs-12 col-md-2">
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<h2></h2>
