@@ -14,6 +14,7 @@
             <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %> |
             <%= link_to "Edit", edit_post_path(post) %>
           </p>
+          <p><%= post.user.email %></p>
           <%= image_tag post.image if post.image? %>
           <p><%= truncate(post.content, length: 500) %></p>
           <%= link_to "閱讀全文", post_path(post), class: "btn btn-default" %>
