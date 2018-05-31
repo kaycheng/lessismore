@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
       redirect_to posts_path
     end
   end
+
+  def post_user
+    @post = Post.find(params[:id])
+    unless current_user == @post.user
+      flash[:alert] = "Not allow!"
+      redirect_to posts_path
+    end
+  end
+
 end
