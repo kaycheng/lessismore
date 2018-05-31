@@ -1,1 +1,5 @@
+<% @post.errors.each do |error, message| %>
+  <%= "#{error.capitalize}" " " "#{message}" %> 
+<% end %>
+
 <%= render partial: "shared/form" %>

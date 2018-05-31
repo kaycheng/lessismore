@@ -12,9 +12,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    flash[:notice] = "Great!"
-    redirect_to posts_path
+    @post.user = current_user
+    if @post.save
+      flash[:notice] = "Great!"
+      redirect_to posts_path
+    else
+      flash[:alert] = "There are some errors"
+      render :new
+    end
   end
 
   def update
@@ -32,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :image, :user_id)
   end
 
   def set_post

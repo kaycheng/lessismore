@@ -3,7 +3,17 @@
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <h1 class="text-center">Stay Hungry, Stay Foolish</h1>
       <br>
-      
+
+      <% if current_user %>
+        Hi, <%= current_user.name %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Signup", new_user_registration_path %>
+      <% end %>
+
+      <%= link_to "新文章", new_post_path %>
+
       <% @posts.each do |post| %>
         <!-- For posts -->
         <div class="col-xs-12 col-md-10">
@@ -14,7 +24,7 @@
             <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %> |
             <%= link_to "Edit", edit_post_path(post) %>
           </p>
-          <p><%= post.user.email %></p>
+          <p><%= post.user.name %></p>
           <%= image_tag post.image if post.image? %>
           <p><%= truncate(post.content, length: 500) %></p>
           <%= link_to "閱讀全文", post_path(post), class: "btn btn-default" %>
