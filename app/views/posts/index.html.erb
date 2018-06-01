@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="col-12 col-md-10 offset-md-1">
       <h1 class="text-center">Stay Hungry, Stay Foolish</h1>
       <br>
 
@@ -12,11 +12,11 @@
         <%= link_to "Signup", new_user_registration_path %>
       <% end %>
 
-      <%= link_to "新文章", new_post_path %>
+      <%= link_to "新文章", new_post_path, class: "btn btn-info" %>
 
       <% @posts.each do |post| %>
         <!-- For posts -->
-        <div class="col-xs-12 col-md-10">
+        <div class="col-12 col-md-10">
           
           <h2><%= post.title %></h2>
           <p class="text-muted">
@@ -29,13 +29,14 @@
           <p><%= post.user.name %></p>
           <%= image_tag post.image if post.image? %>
           <p><%= truncate(post.content, length: 500) %></p>
-          <%= link_to "閱讀全文", post_path(post), class: "btn btn-default" %>
+          <%= link_to "閱讀全文", post_path(post), class: "btn btn-secondary" %>
+          <hr class="index-hr" />
           
         
         </div>
 
         <!-- For categories -->
-        <div class="col-xs-12 col-md-2">
+        <div class="col-12 col-md-2">
 
         </div>
       <% end %>

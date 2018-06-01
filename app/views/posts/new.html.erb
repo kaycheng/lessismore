@@ -1,5 +1,12 @@
-<% @post.errors.each do |error, message| %>
-  <%= "#{error.capitalize}" " " "#{message}" %> 
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+      <% @post.errors.each do |error, message| %>
+        <%= "#{error.capitalize}" " " "#{message}" %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
 
 <%= render partial: "shared/form" %>
