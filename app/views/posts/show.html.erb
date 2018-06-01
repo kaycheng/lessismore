@@ -4,8 +4,10 @@
       <h2 class="text-center"><%= @post.title %></h2>
       <p class="text-muted text-right">
         <%= @post.created_at.strftime("%Y-%m-%d") %> |
-        <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %> |
-        <%= link_to "Edit", edit_post_path(@post) %>
+        <% if current_user == @post.user %>
+          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %> |
+          <%= link_to "Edit", edit_post_path(@post) %>
+        <% end %>
       </p>
       <p><%= @post.user.name %></p>
       <p><%= simple_format(@post.content) %></p>

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_post, only: [:post_user]
 
   protected
 
@@ -16,11 +17,15 @@ class ApplicationController < ActionController::Base
   end
 
   def post_user
-    @post = Post.find(params[:id])
     unless current_user == @post.user
       flash[:alert] = "Not allow!"
       redirect_to posts_path
     end
   end
 
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 end

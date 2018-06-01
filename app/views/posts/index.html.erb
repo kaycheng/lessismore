@@ -21,8 +21,10 @@
           <h2><%= post.title %></h2>
           <p class="text-muted">
             <%= post.created_at.strftime("%Y-%m-%d") %> |
-            <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %> |
-            <%= link_to "Edit", edit_post_path(post) %>
+            <% if current_user == post.user %>
+              <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %> |
+              <%= link_to "Edit", edit_post_path(post) %>
+            <% end %>
           </p>
           <p><%= post.user.name %></p>
           <%= image_tag post.image if post.image? %>
