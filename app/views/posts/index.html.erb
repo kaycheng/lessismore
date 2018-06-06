@@ -1,18 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-md-10 offset-md-1">
-      <h1 class="text-center">Stay Hungry, Stay Foolish</h1>
+      <h1 class="text-center">Knowledge is Power</h1>
       <br>
-
-      <% if current_user %>
-        Hi, <%= current_user.name %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Signup", new_user_registration_path %>
-      <% end %>
-
-      <%= link_to "新文章", new_post_path, class: "btn btn-info" %>
 
       <% @posts.each do |post| %>
         <!-- For posts -->

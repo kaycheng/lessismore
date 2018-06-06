@@ -13,6 +13,24 @@
  */
  @import "bootstrap";
 
+
+/*Navbar*/
+ .navbar {
+  background-color: #fff !important;
+ }
+
+ .navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 1.8em;
+  letter-spacing: -1px;
+ }
+
+ .navbar .navbar-nav {
+  font-weight: bold;
+  font-size: 1.3em;
+ }
+
+/*Footer*/
  .footer {
   margin: 30px;
   text-align: center;
