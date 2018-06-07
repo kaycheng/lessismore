@@ -15,6 +15,9 @@
             <%= link_to "新文章", new_post_path, class: "dropdown-item" %>
             <%= link_to "全部文章", posts_path, class: "dropdown-item" %>
             <%= link_to "個人檔案", "#", class: "dropdown-item" %>
+            <% if current_user.admin? %>
+              <%= link_to "後台", admin_posts_path, class: "dropdown-item" %>
+            <% end %>
             <%= link_to "登出", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
