@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="col-12 col-md-10 offset-md-1"> 
       <h1 class="text-center">後台</h1>
-    
+
+      <%= link_to "新文章", new_admin_post_path, class: "btn btn-info" %> 
+
       <% @posts.each do |post| %>
         <h2><%= post.title %></h2>
         <p class="text-muted">
