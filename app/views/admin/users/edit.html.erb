@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 offset-1">
+      <%= simple_form_for [:admin, @user] do |f| %>
+        <!-- image -->
+        <%= f.input :name %>
+        <%= f.input :slogan %>
+        <%= f.input :intro, input_html: { rows: 10 } %>
+        <%= f.submit "修改", class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
