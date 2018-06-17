@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
+    @user = User.find_by(role: "admin")
     @posts = Post.order(created_at: :desc)
   end
 

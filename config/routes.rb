@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   root "posts#index"
   resources :posts, only: [:index, :show]
+  resources :users, only: [:show]
 
   namespace :admin do 
     resources :posts
+    resources :users
   end
 end
